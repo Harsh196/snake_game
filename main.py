@@ -7,7 +7,6 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snake game")
-x = 0.0
 screen.tracer(0)
 
 snake = Snake()
@@ -31,7 +30,7 @@ while game_is_on:
         scoreboard.calculate_score()
         snake.increase_snake_size()
 
-    # Detect collision with wall
+    # Detect collision with wall and tail
     if snake.detect_collision():
         scoreboard.game_over()
         game_is_on = False

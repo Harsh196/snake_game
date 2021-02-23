@@ -14,7 +14,7 @@ class Snake:
         x = 0
         y = 0
         for i in range(STARTING_SEGMENTS):
-            self.add_segment(x,y)
+            self.add_segment(x, y)
             x -= 20.0
 
     def add_segment(self, x, y):
