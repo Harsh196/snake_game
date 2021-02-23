@@ -20,7 +20,10 @@ class Snake:
     def add_segment(self, x, y):
         new_segment = Turtle("square")
         new_segment.penup()
-        new_segment.color("white")
+        if len(self.segments) % 5:
+            new_segment.color("#b6b428")
+        else:
+            new_segment.color("white")
         new_segment.goto(x=x, y=y)
         self.segments.append(new_segment)
 
@@ -51,10 +54,8 @@ class Snake:
             self.head.setheading(180)
 
     def detect_collision(self):
-        for segment in self.segments:
-            if self.head == segment:
-                pass
-            elif self.head.distance(segment) < 10:
+        for segment in self.segments[1:]:
+            if self.head.distance(segment) < 10:
                 return True
         if self.head.xcor() >= 290 or self.head.xcor() <= -290 or self.head.ycor() >= 290 or self.head.ycor() <= -290:
             return True
